@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone - Sign In</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        // Function to validate form fields
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
+            
+            // Simple validation: check if email and password are filled
+            if (email == "" || password == "") {
+                errorMessage.innerHTML = "Please fill out both fields.";
+                return false;
+            }
+
+            // Check if email format is valid (basic check)
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                errorMessage.innerHTML = "Please enter a valid email address.";
+                return false;
+            }
+
+            // Check if password is at least 6 characters long
+            if (password.length < 6) {
+                errorMessage.innerHTML = "Password must be at least 6 characters.";
+                return false;
+            }
+
+            // If validation passes, submit the form (this would take you to the Amazon clone page)
+            return true;
+        }
+    </script>
+</head>
+<body style="background-color: #f2f2f2; font-family: Arial, sans-serif;">
+    <header style="background-color: #131921; padding: 20px;">
+        <div style="display: flex; justify-content: center;">
+            <a href="#">
+                <img src="assets/amazon_logo.png" alt="Amazon" style="width: 150px;">
+            </a>
+        </div>
+    </header>
+
+    <main style="max-width: 400px; margin: 50px auto; padding: 20px; background-color: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 24px; font-weight: bold; text-align: center; margin-bottom: 20px;">Sign-In</h2>
+        <form onsubmit="return validateForm()" method="post" action="file:///C:/Users/6214/Downloads/amazon-main/amazon-main/index.html">
+            <div style="margin-bottom: 20px;">
+                <label for="email" style="font-size: 14px; font-weight: bold; color: #333;">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" style="width: 100%; padding: 10px; margin-top: 8px; border-radius: 5px; border: 1px solid #ccc;" required>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <label for="password" style="font-size: 14px; font-weight: bold; color: #333;">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" style="width: 100%; padding: 10px; margin-top: 8px; border-radius: 5px; border: 1px solid #ccc;" required>
+            </div>
+            <div id="error-message" style="color: red; font-size: 12px; margin-bottom: 15px;"></div>
+            <button type="submit" style="width: 100%; padding: 12px; background-color: #ff9900; border: none; color: white; font-size: 16px; border-radius: 5px;">Sign In</button>
+        </form>
+        <div style="margin-top: 20px; text-align: center; font-size: 14px;">
+            <a href="#" style="color: #0066c0;">Forgot your password?</a>
+        </div>
+    </main>
+
+    <footer style="background-color: #131921; padding: 10px; text-align: center; color: white; font-size: 12px;">
+        <p>Back to top</p>
+    </footer>
+</body>
+</html>
